@@ -18,6 +18,8 @@ Then configure your crontab to call a specific url to trigger mailbox check inst
 
     curl https://redmine.example.net/check_mails?key=<API_KEY>
 
+That's all!
+
 ## Copyrights & License
 
 Redmine Mail Checker is completely free and open source and released under the [MIT License](https://github.com/jbox-web/redmine_mail_checker/blob/devel/LICENSE).
