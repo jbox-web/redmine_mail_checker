@@ -10,16 +10,32 @@ class MailCheckerController < ApplicationController
 
 
   def index
-    if RedmineMailChecker.get_setting(:protocol) == 'imap'
-      check_imap_mails
+    if protocol == 'imap'
+      method = :check_imap_mails
     else
-      check_pop_mails
+      method = :check_pop_mails
     end
+
+    RedmineMailChecker.logger.info("Checking #{protocol.upcase} mails")
+
+    begin
+      self.send(method)
+    rescue Exception => e
+      RedmineMailChecker.logger.error(e.message)
+    else
+      RedmineMailChecker.logger.info('Done!')
+    end
+
     render nothing: true
   end
 
 
   private
+
+
+    def protocol
+      RedmineMailChecker.get_setting(:protocol)
+    end
 
 
     def check_credential
@@ -31,26 +47,12 @@ class MailCheckerController < ApplicationController
 
 
     def check_imap_mails
-      RedmineMailChecker.logger.info('Checking IMAP mails')
-      begin
-        Redmine::IMAP.check(common_options.merge(imap_options), MailHandler.extract_options_from_env(redmine_options))
-      rescue => e
-        RedmineMailChecker.logger.error(e.message)
-      else
-        RedmineMailChecker.logger.info('Done!')
-      end
+      Redmine::IMAP.check(common_options.merge(imap_options), MailHandler.extract_options_from_env(redmine_options))
     end
 
 
     def check_pop_mails
-      RedmineMailChecker.logger.info('Checking POP3 mails')
-      begin
-        Redmine::POP3.check(common_options.merge(pop_options), MailHandler.extract_options_from_env(redmine_options))
-      rescue => e
-        RedmineMailChecker.logger.error(e.message)
-      else
-        RedmineMailChecker.logger.info('Done!')
-      end
+      Redmine::POP3.check(common_options.merge(pop_options), MailHandler.extract_options_from_env(redmine_options))
     end
 
 
