@@ -1,0 +1,17 @@
+<%
+  # POP options
+  apop               = RedmineMailChecker.get_setting(:apop, true)
+  delete_unprocessed = RedmineMailChecker.get_setting(:delete_unprocessed, true)
+%>
+
+<h4><%= l(:label_pop_options) %></h4>
+
+<p>
+  <%= content_tag(:label, l(:label_use_apop)) %>
+  <%= select_tag("settings[apop]", options_for_select([[l(:label_enabled), 'true'], [l(:label_disabled), 'false']], apop)) %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_delete_unprocessed)) %>
+  <%= select_tag("settings[delete_unprocessed]", options_for_select([[l(:label_enabled), 'true'], [l(:label_disabled), 'false']], delete_unprocessed)) %>
+</p>

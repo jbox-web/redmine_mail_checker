@@ -1,0 +1,23 @@
+<%
+  # IMAP options
+  folder          = RedmineMailChecker.get_setting(:folder)
+  move_on_success = RedmineMailChecker.get_setting(:move_on_success)
+  move_on_failure = RedmineMailChecker.get_setting(:move_on_failure)
+%>
+
+<h4><%= l(:label_imap_options) %></h4>
+
+<p>
+  <%= content_tag(:label, l(:label_folder)) %>
+  <%= text_field_tag("settings[folder]", folder, :size => '10') %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_move_on_success)) %>
+  <%= text_field_tag("settings[move_on_success]", move_on_success, :size => '10') %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_move_on_failure)) %>
+  <%= text_field_tag("settings[move_on_failure]", move_on_failure, :size => '10') %>
+</p>

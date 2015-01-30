@@ -1,0 +1,17 @@
+<%
+  # Redmine options
+  project        = RedmineMailChecker.get_setting(:project)
+  allow_override = RedmineMailChecker.get_setting(:allow_override)
+%>
+
+<h4><%= l(:label_redmine_options) %></h4>
+
+<p>
+  <%= content_tag(:label, l(:label_project)) %>
+  <%= text_field_tag("settings[project]", project, :size => '10') %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_allow_override)) %>
+  <%= text_field_tag("settings[allow_override]", allow_override, :size => '60') %>
+</p>

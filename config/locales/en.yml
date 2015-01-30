@@ -1,0 +1,27 @@
+en:
+  label_common_options: Common options
+  label_imap_options: IMAP options
+  label_pop_options: POP options
+  label_redmine_options: Redmine options
+
+  # Common options
+  label_protocol: Protocol
+  label_imap_protocol: IMAP
+  label_pop3_protocol: POP3
+  label_host: Host
+  label_port: Port
+  label_ssl: Use SSL?
+  label_username: Username
+  label_password: Password
+
+  # IMAP options
+  label_folder: Folder
+  label_move_on_success: Move on success
+  label_move_on_failure: Move on failure
+
+  # POP options
+  label_use_apop: Use apop?
+  label_delete_unprocessed: Delete unprocessed?
+
+  # Redmine options
+  label_allow_override: Allow override

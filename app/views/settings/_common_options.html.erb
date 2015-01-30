@@ -1,0 +1,41 @@
+<%
+  # Common options
+  protocol = RedmineMailChecker.get_setting(:protocol)
+  host     = RedmineMailChecker.get_setting(:host)
+  port     = RedmineMailChecker.get_setting(:port)
+  ssl      = RedmineMailChecker.get_setting(:ssl, true)
+  username = RedmineMailChecker.get_setting(:username)
+  password = RedmineMailChecker.get_setting(:password)
+%>
+
+<h4><%= l(:label_common_options) %></h4>
+
+<p>
+  <%= content_tag(:label, l(:label_protocol)) %>
+  <%= select_tag("settings[protocol]", options_for_select([[l(:label_imap_protocol), 'imap'], [l(:label_pop3_protocol), 'pop3']], protocol)) %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_host)) %>
+  <%= text_field_tag("settings[host]", host, :size => '20') %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_port)) %>
+  <%= text_field_tag("settings[port]", port, :size => '4') %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_ssl)) %>
+  <%= select_tag("settings[ssl]", options_for_select([[l(:label_enabled), 'true'], [l(:label_disabled), 'false']], ssl)) %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_username)) %>
+  <%= text_field_tag("settings[username]", username, :size => '40') %>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:label_password)) %>
+  <%= text_field_tag("settings[password]", password, :size => '20') %>
+</p>
