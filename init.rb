@@ -8,7 +8,7 @@ Redmine::Plugin.register :redmine_mail_checker do
   name 'Redmine Mail Checker'
   author 'Nicolas Rodriguez'
   description 'Replace redmine:email:receive_imap Rake task by a webservice'
-  version '1.0.0-devel'
+  version '1.0.0'
   url 'https://github.com/jbox-web/redmine_mail_checker'
   author_url 'https://github.com/jbox-web'
 
