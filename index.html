@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Redmine mail checker by jbox-web</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Redmine mail checker</h1>
+        <p>A Redmine plugin to check your mails</p>
+
+        <p class="view"><a href="https://github.com/jbox-web/redmine_mail_checker">View the Project on GitHub <small>jbox-web/redmine_mail_checker</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jbox-web/redmine_mail_checker/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jbox-web/redmine_mail_checker/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jbox-web/redmine_mail_checker">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>
+<a id="redmine-mail-checker-plugin" class="anchor" href="#redmine-mail-checker-plugin" aria-hidden="true"><span class="octicon octicon-link"></span></a>Redmine Mail Checker Plugin</h2>
+
+<p><a href="https://codeclimate.com/github/jbox-web/redmine_mail_checker"><img src="https://codeclimate.com/github/jbox-web/redmine_mail_checker.png" alt="Code Climate"></a>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=FBT7E7DAVVEEU"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate"></a></p>
+
+<h2>
+<a id="a-redmine-plugin-to-check-your-mails" class="anchor" href="#a-redmine-plugin-to-check-your-mails" aria-hidden="true"><span class="octicon octicon-link"></span></a>A Redmine plugin to check your mails.</h2>
+
+<p>This plugin replaces Redmine rake task to check mails.</p>
+
+<h2>
+<a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
+
+<p>Running periodicaly <code>bundle exec rake redmine:email:receive_imap</code> to check your mails leads to high memory consumption : Redmine is loaded twice, once for your webserver and once for the cron task.
+This is not very efficient : for VPS with small memory size this can lead to memory saturation and the intervention of the OOM Killer who will kill the job.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>Install this plugin with git clone</li>
+</ol>
+
+<pre><code>redmine$ cd REDMINE_ROOT/plugins
+redmine$ git clone https://github.com/jbox-web/redmine_mail_checker.git
+redmine$ cd redmine_mail_checker/
+redmine$ git checkout 1.0.0
+</code></pre>
+
+<p><em>No need of db:migrate or bundle update, just restart Redmine.</em></p>
+
+<ol>
+<li><p>Enable WS for mail reception (in <em>Administration -&gt; Settings -&gt; Incoming emails</em>) and generate an API key.</p></li>
+<li><p>Configure your mailbox settings (in <em>Administration -&gt; Plugins -&gt; Configure</em>)</p></li>
+<li><p>Then configure your crontab to call a specific url to trigger mailbox check instead of <code>bundle exec rake redmine:email:receive_imap</code></p></li>
+</ol>
+
+<pre><code>curl http://redmine.example.net/check_mails?key=&lt;API_KEY&gt;
+</code></pre>
+
+<p>That's all!</p>
+
+<h2>
+<a id="copyrights--license" class="anchor" href="#copyrights--license" aria-hidden="true"><span class="octicon octicon-link"></span></a>Copyrights &amp; License</h2>
+
+<p>Redmine Mail Checker is completely free and open source and released under the <a href="https://github.com/jbox-web/redmine_mail_checker/blob/devel/LICENSE">MIT License</a>.</p>
+
+<p>Copyright (c) 2015 Nicolas Rodriguez (<a href="mailto:nrodriguez@jbox-web.com">nrodriguez@jbox-web.com</a>), JBox Web (<a href="http://www.jbox-web.com">http://www.jbox-web.com</a>) <a href="https://coderwall.com/n-rodriguez"><img src="https://api.coderwall.com/n-rodriguez/endorsecount.png" alt="endorse"></a></p>
+
+<h2>
+<a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contribute</h2>
+
+<p>You can contribute to this plugin in many ways such as :</p>
+
+<ul>
+<li>Helping with documentation</li>
+<li>Contributing code (features or bugfixes)</li>
+<li>Reporting a bug</li>
+<li>Submitting translations</li>
+</ul>
+
+<p>You can also donate :)</p>
+
+<p><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=FBT7E7DAVVEEU"><img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate"></a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jbox-web">jbox-web</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-36504891-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
