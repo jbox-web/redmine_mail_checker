@@ -9,17 +9,17 @@ This plugin replaces Redmine rake task to check mails.
 
 ## Why?
 
-Running periodicaly ```bundle exec rake redmine:email:receive_imap``` to check your mails leads to high memory consumption : Redmine is loaded twice : once for your webserver and once for the cron task.
+Running periodicaly ```bundle exec rake redmine:email:receive_imap``` to check your mails leads to high memory consumption : Redmine is loaded twice, once for your webserver and once for the cron task.
 This is not very efficient : for VPS with small memory size this can lead to memory saturation and the intervention of the OOM Killer who will kill the job.
 
 ## Installation
 
 1. Install this plugin with git clone
 ```
-    redmine$ cd REDMINE_ROOT/plugins
-    redmine$ git clone https://github.com/jbox-web/redmine_mail_checker.git
-    redmine$ cd redmine_mail_checker/
-    redmine$ git checkout 1.0.0
+redmine$ cd REDMINE_ROOT/plugins
+redmine$ git clone https://github.com/jbox-web/redmine_mail_checker.git
+redmine$ cd redmine_mail_checker/
+redmine$ git checkout 1.0.0
 ```
 
 *No need of db:migrate or bundle update, just restart Redmine.*
@@ -29,9 +29,9 @@ This is not very efficient : for VPS with small memory size this can lead to mem
 3. Configure your mailbox settings (in *Administration -> Plugins -> Configure*)
 
 4. Then configure your crontab to call a specific url to trigger mailbox check instead of ```bundle exec rake redmine:email:receive_imap```
-
-    curl http://redmine.example.net/check_mails?key=<API_KEY>
-
+```
+curl http://redmine.example.net/check_mails?key=<API_KEY>
+```
 
 That's all!
 
