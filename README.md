@@ -4,7 +4,7 @@
 [![GitHub release](https://img.shields.io/github/release/jbox-web/redmine_mail_checker.svg)](https://github.com/jbox-web/redmine_mail_checker/releases/latest)
 [![Code Climate](https://codeclimate.com/github/jbox-web/redmine_mail_checker.png)](https://codeclimate.com/github/jbox-web/redmine_mail_checker)
 
-## A Redmine plugin to check your mails.
+### A Redmine plugin to check your mails, easy ;)
 
 This plugin replaces Redmine rake task to check mails.
 
