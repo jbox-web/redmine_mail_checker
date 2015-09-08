@@ -1,7 +1,8 @@
 ## Redmine Mail Checker Plugin
 
+[![GitHub license](https://img.shields.io/github/license/jbox-web/redmine_mail_checker.svg)](https://github.com/jbox-web/redmine_mail_checker/blob/devel/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/jbox-web/redmine_mail_checker.svg)](https://github.com/jbox-web/redmine_mail_checker/releases/latest)
 [![Code Climate](https://codeclimate.com/github/jbox-web/redmine_mail_checker.png)](https://codeclimate.com/github/jbox-web/redmine_mail_checker)
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FBT7E7DAVVEEU)
 
 ## A Redmine plugin to check your mails.
 
@@ -14,32 +15,26 @@ This is not very efficient : for VPS with small memory size this can lead to mem
 
 ## Installation
 
-1. Install this plugin with git clone
-```
-redmine$ cd REDMINE_ROOT/plugins
-redmine$ git clone https://github.com/jbox-web/redmine_mail_checker.git
-redmine$ cd redmine_mail_checker/
-redmine$ git checkout 1.0.0
-```
+**1)** Install this plugin with git clone
+
+
+    redmine$ cd REDMINE_ROOT/plugins
+    redmine$ git clone https://github.com/jbox-web/redmine_mail_checker.git
+    redmine$ cd redmine_mail_checker/
+    redmine$ git checkout 1.0.0
 
 *No need of db:migrate or bundle update, just restart Redmine.*
 
-2. Enable WS for mail reception (in *Administration -> Settings -> Incoming emails*) and generate an API key.
+**2)** Enable WS for mail reception (in *Administration -> Settings -> Incoming emails*) and generate an API key.
 
-3. Configure your mailbox settings (in *Administration -> Plugins -> Configure*)
+**3)** Configure your mailbox settings (in *Administration -> Plugins -> Configure*)
 
-4. Then configure your crontab to call a specific url to trigger mailbox check instead of ```bundle exec rake redmine:email:receive_imap```
-```
-curl http://redmine.example.net/check_mails?key=<API_KEY>
-```
+**4)** Then configure your crontab to call a specific url to trigger mailbox check instead of ```bundle exec rake redmine:email:receive_imap```
+
+    curl http://redmine.example.net/check_mails?key=<API_KEY>
+
 
 That's all!
-
-## Copyrights & License
-
-Redmine Mail Checker is completely free and open source and released under the [MIT License](https://github.com/jbox-web/redmine_mail_checker/blob/devel/LICENSE).
-
-Copyright (c) 2015 Nicolas Rodriguez (nrodriguez@jbox-web.com), JBox Web (http://www.jbox-web.com) [![endorse](https://api.coderwall.com/n-rodriguez/endorsecount.png)](https://coderwall.com/n-rodriguez)
 
 ## Contribute
 
@@ -48,7 +43,3 @@ You can contribute to this plugin in many ways such as :
 * Contributing code (features or bugfixes)
 * Reporting a bug
 * Submitting translations
-
-You can also donate :)
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FBT7E7DAVVEEU)
