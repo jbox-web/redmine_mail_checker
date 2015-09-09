@@ -23,13 +23,18 @@
 <a href="https://github.com/jbox-web/redmine_mail_checker/releases/latest"><img src="https://img.shields.io/github/release/jbox-web/redmine_mail_checker.svg" alt="GitHub release"></a>
 <a href="https://codeclimate.com/github/jbox-web/redmine_mail_checker"><img src="https://codeclimate.com/github/jbox-web/redmine_mail_checker.png" alt="Code Climate"></a></p>
 
-<p>This plugin replaces Redmine Rake task to check mails.</p>
+<p>This plugin replaces Redmine rake task to check mails.</p>
 
 <h2>
 <a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
 
 <p>Running periodicaly <code>bundle exec rake redmine:email:receive_imap</code> to check your mails leads to high memory consumption : Redmine is loaded twice, once for your webserver and once for the cron task.
 This is not very efficient : for VPS with small memory size this can lead to memory saturation and the intervention of the OOM Killer who will kill the job.</p>
+
+<h2>
+<a id="compatibility" class="anchor" href="#compatibility" aria-hidden="true"><span class="octicon octicon-link"></span></a>Compatibility</h2>
+
+<p>This plugin is compatible with Redmine versions &gt; <strong>2.4.x</strong>.</p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
