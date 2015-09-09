@@ -13,6 +13,10 @@ This plugin replaces Redmine rake task to check mails.
 Running periodicaly ```bundle exec rake redmine:email:receive_imap``` to check your mails leads to high memory consumption : Redmine is loaded twice, once for your webserver and once for the cron task.
 This is not very efficient : for VPS with small memory size this can lead to memory saturation and the intervention of the OOM Killer who will kill the job.
 
+## Compatibility
+
+This plugin is compatible with Redmine versions > 2.4.
+
 ## Installation
 
 **1)** Install this plugin with git clone
