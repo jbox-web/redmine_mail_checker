@@ -15,7 +15,7 @@ This is not very efficient : for VPS with small memory size this can lead to mem
 
 ## Compatibility
 
-This plugin is compatible with Redmine versions > 2.4.
+This plugin is compatible with Redmine versions > **2.4.x**.
 
 ## Installation
 
