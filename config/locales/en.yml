@@ -25,3 +25,6 @@ en:
 
   # Redmine options
   label_allow_override: Allow override
+
+  # Missing in Redmine (3.1.1)
+  label_enabled: enabled
