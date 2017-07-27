@@ -34,7 +34,7 @@ class MailCheckerController < ApplicationController
 
 
     def protocol
-      RedmineMailChecker.get_setting(:protocol)
+      RedmineMailChecker.get_setting('protocol')
     end
 
 
@@ -58,11 +58,11 @@ class MailCheckerController < ApplicationController
 
     def common_options
       {
-        :host     => RedmineMailChecker.get_setting(:host),
-        :port     => RedmineMailChecker.get_setting(:port).to_i,
-        :ssl      => RedmineMailChecker.get_setting(:ssl, true),
-        :username => RedmineMailChecker.get_setting(:username),
-        :password => RedmineMailChecker.get_setting(:password)
+        :host     => RedmineMailChecker.get_setting('host'),
+        :port     => RedmineMailChecker.get_setting('port').to_i,
+        :ssl      => RedmineMailChecker.get_setting('ssl', true),
+        :username => RedmineMailChecker.get_setting('username'),
+        :password => RedmineMailChecker.get_setting('password')
       }
     end
 
@@ -70,29 +70,29 @@ class MailCheckerController < ApplicationController
     def imap_options
       options = {}
       options[:folder]          = !imap_folder.empty? ? imap_folder : nil
-      options[:move_on_success] = RedmineMailChecker.get_setting(:move_on_success)
-      options[:move_on_failure] = RedmineMailChecker.get_setting(:move_on_failure)
+      options[:move_on_success] = RedmineMailChecker.get_setting('move_on_success')
+      options[:move_on_failure] = RedmineMailChecker.get_setting('move_on_failure')
       options
     end
 
 
     def imap_folder
-      RedmineMailChecker.get_setting(:folder)
+      RedmineMailChecker.get_setting('folder')
     end
 
 
     def pop_options
       options = {}
-      options[:apop] = RedmineMailChecker.get_setting(:apop, true),
-      options[:delete_unprocessed] = RedmineMailChecker.get_setting(:delete_unprocessed, true)
+      options[:apop] = RedmineMailChecker.get_setting('apop', true),
+      options[:delete_unprocessed] = RedmineMailChecker.get_setting('delete_unprocessed', true)
       options
     end
 
 
     def redmine_options
       options = {}
-      options['project']        = RedmineMailChecker.get_setting(:project)
-      options['allow_override'] = RedmineMailChecker.get_setting(:allow_override)
+      options['project']        = RedmineMailChecker.get_setting('project')
+      options['allow_override'] = RedmineMailChecker.get_setting('allow_override')
       options
     end
 
